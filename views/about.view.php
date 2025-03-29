@@ -16,6 +16,11 @@ require "../views/partials/nav.php";
                 <h2 class="text-2xl text-center font-bold text-green-800 mb-6">Our mission</h2> To connect those who *seek* with those who *have* the truly hard-to-find. Whether you're looking for a specific component to restore a vintage device, a rare collectible that's been out of production for decades, or a specialized part for a niche piece of equipment, RareFinds Marketplace provides a dedicated space to facilitate these connections.
             </p>
 
+            <p  class="text-black-700 leading-relaxed mb-4">
+            <h2 class="text-2xl text-center font-bold text-green-800 mb-6">inspiration</h2>>
+            Tired of fruitless searches for discontinued and specialized items, the creators of RareFinds Marketplace envisioned a solution. The frustration of locating elusive components for repairs, rare collectibles, or niche parts sparked the idea for a dedicated online platform. RareFinds aims to connect those seeking with those who have the truly hard-to-find, filling a gap left by traditional retail. Focusing on rarity, individual parts, and direct connections, it empowers individual sellers and builds a community around unique goods. The mission is simple: simplify the hunt for those items you can't find anywhere else, making the seemingly impossible, possible.
+            </p>
+
             <h3 class="text-2xl text-center font-bold text-green-800 mb-6">What Makes Us Unique?</h3>
             <ul class="list-disc list-inside text-black-700 leading-relaxed mb-4">
                 <li><strong>Focus on Rarity and Scarcity:</strong> We are specifically designed for items difficult to find through conventional means.</li>
