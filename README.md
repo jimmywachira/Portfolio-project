@@ -125,95 +125,11 @@ While this was a solo project for portfolio purposes, if you have suggestions or
 
 ## License
 
-[Specify your project license here, e.g., MIT License]
+
 
 ## Contact
 
-[Your Name] - [Your Email Address] - [Your LinkedIn Profile URL (Optional)]
+Name : james ndegwa
+email : jmmndegwa@gmail.com  
 
 ---
-
-**Example of Enhanced Code Documentation (Illustrative - Add these to your actual PHP files):**
-
-```php
-<?php
-
-namespace App\Controllers;
-
-use App\Models\Product;
-use App\Core\View;
-
-/**
- * Controller for handling product-related actions.
- */
-class ProductController
-{
-    /**
-     * Displays a list of all products.
-     *
-     * @return void
-     */
-    public function index()
-    {
-        $products = Product::all(); // Fetch all products from the database
-        View::render('products/index', ['products' => $products]); // Render the product listing view
-    }
-
-    /**
-     * Displays the details for a specific product.
-     *
-     * @param int $id The ID of the product to display.
-     * @return void
-     */
-    public function show($id)
-    {
-        $product = Product::find($id); // Find the product by its ID
-
-        if ($product) {
-            View::render('products/show', ['product' => $product]); // Render the product detail view
-        } else {
-            // Handle case where product is not found (e.g., redirect to 404)
-            header("HTTP/1.0 404 Not Found");
-            View::render('errors/404');
-        }
-    }
-
-    /**
-     * Handles the submission of a new product listing.
-     *
-     * @return void
-     */
-    public function create()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-            $title = htmlspecialchars($_POST['title']);
-            $description = htmlspecialchars($_POST['description']);
-            $price = filter_var($_POST['price'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-            $phone_number = htmlspecialchars($_POST['phone_number']);
-            $category = htmlspecialchars($_POST['category']);
-            $user_id = $_SESSION['user_id'] ?? 1; // Assuming user authentication
-
-            if (!empty($title) && !empty($description) && is_numeric($price) && !empty($phone_number) && !empty($category)) {
-                $product = new Product();
-                $product->title = $title;
-                $product->description = $description;
-                $product->price = $price;
-                $product->phone_number = $phone_number;
-                $product->category = $category;
-                $product->user_id = $user_id;
-                $product->save(); // Save the new product to the database
-
-                // Redirect to the product listing page or display a success message
-                header('Location: /products');
-                exit();
-            } else {
-                // Display error message if validation fails
-                $error = "Please fill in all fields correctly.";
-                View::render('products/create', ['error' => $error]);
-            }
-        } else {
-            // Display the product creation form
-            View::render('products/create');
-        }
-    }
-}
